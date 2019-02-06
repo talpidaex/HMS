@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="resPanel" prefHeight="400.0" prefWidth="413.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HMS.resPanel.ResPanelController">
+   <children>
+      <TabPane prefHeight="506.0" prefWidth="507.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Reservation List">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="408.0">
+                     <children>
+                        <TableView fx:id="resTableView" layoutX="2.0" prefHeight="477.0" prefWidth="507.0">
+                          <columns>
+                            <TableColumn fx:id="resIdCol" prefWidth="71.0" text="Res ID" />
+                            <TableColumn fx:id="resDocIdCol" prefWidth="67.0" text="Doctor ID" />
+                              <TableColumn fx:id="resPatIdCol" prefWidth="82.0" text="Patient ID" />
+                              <TableColumn fx:id="resNurIdCol" prefWidth="72.0" text="Nurse ID" />
+                              <TableColumn fx:id="resPatDateCol" prefWidth="96.0" text="Patient Date" />
+                              <TableColumn fx:id="resOperationCol" prefWidth="116.0" text="Operation Theatre" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#patientInfo" text="Patient Info" />
+                                    <MenuItem mnemonicParsing="false" onAction="#deleteRes" text="Delete" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Create Patient">
+               <content>
+                  <AnchorPane id="AnchorPane" prefHeight="457.0" prefWidth="536.0">
+                     <children>
+                        <TextField fx:id="pat_name" alignment="CENTER" layoutX="136.0" layoutY="93.0" prefHeight="25.0" prefWidth="251.0" promptText="Patient Name" />
+                        <TextField fx:id="pat_surname" alignment="CENTER" layoutX="136.0" layoutY="135.0" prefHeight="25.0" prefWidth="251.0" promptText="Patient Surname" />
+                        <TextField fx:id="res_id" alignment="CENTER" layoutX="136.0" layoutY="21.0" onKeyReleased="#dataResControl" prefHeight="25.0" prefWidth="251.0" promptText="Reservation ID" />
+                        <TextField fx:id="pat_age" alignment="CENTER" layoutX="136.0" layoutY="205.0" onKeyReleased="#dataAgeControl" prefHeight="25.0" prefWidth="251.0" promptText="Age " />
+                        <RadioButton fx:id="pat_genderMale" layoutX="189.0" layoutY="173.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="65.0" text="Male">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="gender" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="pat_genderFemale" layoutX="270.0" layoutY="173.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="73.0" text="Female" toggleGroup="$gender" />
+                        <Button layoutX="144.0" layoutY="401.0" mnemonicParsing="false" onAction="#patSaveBtn" prefHeight="38.0" prefWidth="100.0" text="Save" />
+                        <Button layoutX="287.0" layoutY="401.0" mnemonicParsing="false" onAction="#cancel" prefHeight="38.0" prefWidth="96.0" text="Cancel" />
+                        <ComboBox fx:id="DepartmentList" layoutX="137.0" layoutY="242.0" onAction="#isSelected" prefHeight="25.0" prefWidth="248.0" promptText="Select Department" />
+                        <ComboBox fx:id="DoctorList" layoutX="137.0" layoutY="277.0" onAction="#takeDoctorID" prefHeight="25.0" prefWidth="249.0" promptText="Select Doctor" />
+                        <DatePicker fx:id="date" layoutX="266.0" layoutY="355.0" prefHeight="25.0" prefWidth="120.0" />
+                        <TextField fx:id="pat_id" alignment="CENTER" layoutX="136.0" layoutY="59.0" onKeyReleased="#dataPatControl" prefHeight="25.0" prefWidth="251.0" promptText="Patient ID" />
+                        <ComboBox fx:id="nurseList" layoutX="137.0" layoutY="314.0" onAction="#takeNurseID" prefHeight="25.0" prefWidth="248.0" promptText="Select Nurse" />
+                        <TextField fx:id="Ope_theater" layoutX="137.0" layoutY="355.0" prefHeight="25.0" prefWidth="117.0" promptText="Operation Theater" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="patientListPanel" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HMS.patient.PatientController">
+   <children>
+      <TableView fx:id="patTableView" layoutY="-2.0" prefHeight="400.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="pat_idCol" prefWidth="75.0" text="Patient ID" />
+          <TableColumn fx:id="pat_nameCol" prefWidth="95.0" text="Patient Name" />
+            <TableColumn fx:id="pat_surCol" prefWidth="108.0" text="Patient Surname" />
+            <TableColumn fx:id="pat_ageCol" prefWidth="102.0" text="Patient Age" />
+            <TableColumn fx:id="pat_sexCol" prefWidth="110.0" text="Patient Gender" />
+            <TableColumn fx:id="pat_dateCol" prefWidth="109.0" text="Appointment " />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#deletePatient" text="Delete" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </children>
+</AnchorPane>
